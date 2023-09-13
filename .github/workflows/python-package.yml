@@ -1,12 +1,6 @@
 name: Python package
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'src/**'
-      - 'tests/**'
-      - '.github/workflows/**'
   pull_request:
     branches: [ main ]
 
@@ -35,8 +29,7 @@ jobs:
     - name: Generate Markdown
       run: |
         python3 markdownGenerater.py
-    - name: Commit and push if changes
+    - name: Commit changes
       run: |
         git add generated_markdown.md histogram.png
-        git commit -m "Add generated markdown and histogram" || echo "No changes to commit"
-        git push origin main
+        git commit -m "Generated markdown and histogram" || echo "No changes to commit"
