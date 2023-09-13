@@ -29,3 +29,12 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Generate Markdown
+      run: |
+        python3 markdownGenerater.py
+     - name: Commit and push if changes
+      run: |
+        git add generated_markdown.md histogram.png
+        git commit -m "Add generated markdown and histogram" || echo "No changes to commit"
+        git push
+
