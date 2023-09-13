@@ -16,22 +16,35 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
     - name: Lint with flake8
       run: |
         pip install flake8
         flake8 src
+
     - name: Test with pytest
       run: |
         pip install pytest
         pytest
+
     - name: Generate Markdown
       run: |
         python3 markdownGenerater.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "nicholas.conterno@duke.edu"
+        git config --local user.name "nicholasconterno"
+        git add generated_markdown.md histogram.png
+        git commit -m "Automatically update generated_markdown and histogram" || echo "No changes to commit"
+        git push
