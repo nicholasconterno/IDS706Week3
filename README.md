@@ -2,7 +2,9 @@
 
 Data visualization using pandas.
 
+[![Python package](https://github.com/nicholasconterno/IDS706Week3/actions/workflows/python-package.yml/badge.svg)](https://github.com/nicholasconterno/IDS706Week3/actions/workflows/python-package.yml)
 ## Makefile Usage
+
 
 Our `Makefile` contains several rules to simplify the development process:
 
