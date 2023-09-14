@@ -1,4 +1,4 @@
-import polars as pl  
+import polars as pl
 import seaborn as sns
 import matplotlib.pyplot as plt
 
